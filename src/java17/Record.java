@@ -63,6 +63,10 @@ import java.util.Objects;
 record User(int id, String name) {
 }
 
+//record User(int id, String name, int age) {
+//	
+//}
+
 public class Record {
 
 	public static void main(String[] args) {

@@ -60,7 +60,30 @@ public class EmployeeStreamExample {
 		// sort employee (ascending)
 
 		employees.stream().sorted(Comparator.comparing(Employee::getDepartment)).forEach(System.out::println);
+
+		// filter employees whose salary is greater than a given value
+
+		List<Employee> grtThan = employees.stream().filter(s -> s.getSalary() > 30000).toList();
+
+		System.out.println(grtThan);
+
+		// average salary of all employees
+
+		Double collect = employees.stream().collect(Collectors.averagingDouble(s -> s.getSalary()));
+
+		System.out.println(collect);
+
+		Map<String, List<Employee>> grpByDept = employees.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment));
+
+		System.out.println("grpByDept : " + grpByDept);
 		
+		// count employees in every department
+		
+		Map<String, Long> countem = employees.stream()
+				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
+		
+		System.out.println(countem);
 	}
 
 }

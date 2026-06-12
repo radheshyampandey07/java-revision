@@ -12,36 +12,32 @@ public class TreeMapEx {
 
 	public static void main(String[] args) {
 
+		// tree map is naturally sorted based on key
+
 		Map<Integer, String> students = new TreeMap<Integer, String>();
 		students.put(19, "Radhe");
 		students.put(29, "Gyan");
-		students.put(39, "Radhe");
+		students.put(36, "Radhe");
 		students.put(79, "Shyam");
-		students.put(19, "Radhe");
+		students.put(10, "Ankit");
 		students.put(21, "Shyam");
 		students.put(13, "Shivam");
-		students.put(43, "Gyan");
-		
-		System.out.println(students);
-		
-		Map<Integer, String> sorted = students.entrySet()
-				.stream()
+		students.put(43, "Ishan");
+
+		System.out.println("all students : " + students);
+
+		Map<Integer, String> sorted = students.entrySet().stream()
 				.sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-				.collect(Collectors.toMap(Map.Entry::getKey, 
-						Map.Entry::getValue, 
-						(oldValue, newValue) -> oldValue,
-		                LinkedHashMap::new));
-		System.out.println(sorted);
-		
+				.collect(Collectors.toMap(
+						Map.Entry::getKey, Map.Entry::getValue, (oldValue, newValue) -> oldValue, LinkedHashMap::new));
+		System.out.println("sorted by values " + sorted);
+
 		// group by value
-		
-		students.entrySet()
-        .stream()
-        .collect(Collectors.groupingBy(
-                Map.Entry::getValue,
-                Collectors.mapping(Map.Entry::getKey, Collectors.toList())
-        ))
-        .forEach((name, ids) -> System.out.println(name + " -> " + ids));
+
+		students.entrySet().stream()
+				.collect(Collectors.groupingBy(Map.Entry::getValue,
+						Collectors.mapping(Map.Entry::getKey, Collectors.toList())))
+				.forEach((name, ids) -> System.out.println(name + " -> " + ids));
 	}
 
 }

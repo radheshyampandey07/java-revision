@@ -41,7 +41,7 @@ class D extends B {
 
 public class SealedClassEx {
 	public static void main(String[] args) {
-		A obj = new D();
+		A obj = new C();
 		process(obj);
 	}
 
