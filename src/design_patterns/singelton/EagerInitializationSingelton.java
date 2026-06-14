@@ -14,7 +14,7 @@ class College {
 	}
 }
 
-public class Singelton {
+public class EagerInitializationSingelton {
 
 	public static void main(String[] args) {
 
