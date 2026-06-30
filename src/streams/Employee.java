@@ -67,11 +67,11 @@ public class Employee {
 				new Employee(4L, "Rohit Sharma", 65000D, "IT"), 
 				new Employee(5L, "Anjali Mishra", 78000D, "Admin"),
 				
-//				new Employee(7L, "Sneha Kapoor", 91000D, "Finance"),
-//				new Employee(8L, "Vikas Yadav", 40000D, "HR"), 
+				new Employee(7L, "Sneha Kapoor", 91000D, "Finance"),
+				new Employee(8L, "Vikas Yadav", 42000D, "HR"), 
 //				new Employee(9L, "Anjali Mishra", 87000D, "IT"),
 //				new Employee(6L, "Karan Mehta", 32000D, "IT"), 
-				new Employee(10L, "Deepak Kumar", 57000D, "Admin")));
+				new Employee(10L, "Deepak Kumar", 78000D, "Admin")));
 		
 		return employees;
 	}

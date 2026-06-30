@@ -1,7 +1,7 @@
 package design_patterns.singelton;
 
 class College {
-	private static String name = "IGNOU";
+//	private static String name = "IGNOU";
 
 	private static College college = new College();
 

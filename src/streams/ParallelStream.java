@@ -13,8 +13,10 @@ public class ParallelStream {
 		end = System.currentTimeMillis();
 
 		System.out.println("time taken : " + (end - start));
-		System.out.println("----------------------------------------------------------");
+		System.out.println("--------------------------------------");
 
+		start = 0;
+		end = 0;
 		start = System.currentTimeMillis();
 		IntStream.range(0, 100).parallel().forEach(System.out::println);
 		end = System.currentTimeMillis();
