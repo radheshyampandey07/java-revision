@@ -1,4 +1,4 @@
-package filereader;
+package filehandling;
 
 import java.io.*;
 //import java.io.FileReader;

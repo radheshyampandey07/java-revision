@@ -21,7 +21,7 @@ public class EmployeeStreamExample {
 		System.out.println("Max Salaried Employee : " + maxSalariedEmployee);
 
 		List<String> decOrderSalariedEmplist = employees.stream()
-				.sorted(Comparator.comparing(Employee::getSalary).reversed()).map(Employee::getEmpName).toList();
+				.sorted(Comparator.comparing(Employee::getSalary ).reversed()).map(Employee::getEmpName).toList();
 
 		System.out.println("decOrderSalariedEmplist : " + decOrderSalariedEmplist);
 
@@ -77,13 +77,29 @@ public class EmployeeStreamExample {
 				.collect(Collectors.groupingBy(Employee::getDepartment));
 
 		System.out.println("grpByDept : " + grpByDept);
-		
+
 		// count employees in every department
-		
+
 		Map<String, Long> countem = employees.stream()
 				.collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()));
-		
+
 		System.out.println(countem);
+
+		Map<String, Double> grpByDeptAndAvgSalary = employees.stream().collect(
+				Collectors.groupingBy(Employee::getDepartment, Collectors.averagingDouble(Employee::getSalary)));
+
+		System.out.println("group by dept and find average salary from each dept : " + grpByDeptAndAvgSalary);
+	
+		// find number of employees from the department where employees are more than 3
+		Map<String, Long> empCountGroupByDept = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment, Collectors.counting()))
+			.entrySet()
+			.stream()
+			.filter(e -> e.getValue()>2)
+			.collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+		
+		System.out.println(empCountGroupByDept);
+			
+	
 	}
 
 }
